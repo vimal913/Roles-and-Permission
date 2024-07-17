@@ -6,7 +6,7 @@
             <div class="pull-left mb-4">
                     <div class="float-end">
                         @can('product-create')
-                            <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Inventory</a>
+                            <a class="btn btn-success" href="{{ route('purchasecreate') }}"> Create New Purchase</a>
                         @endcan
                     </div>
                 
@@ -27,14 +27,18 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    @if ($message = Session::get('failure'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
     <table id="myTable" class="table table-striped table-hover">
         <thead>
+            <th>S.no</th>
             <th>Name</th>
-            <th>Description</th>
             <th>Stock</th>
             <th>Price</th>
-            <th width="280px">Action</th>
         </thead>
         <tbody>
         </tbody>
@@ -62,7 +66,7 @@
 
             function search() {
                 var keyword = $('#searchInput').val();
-                $.post('{{ route('products.search') }}', {
+                $.post('{{ route('purchase.search') }}', {
                         _token: $('meta[name="csrf-token"]').attr('content'),
                         keyword: keyword
                     },
@@ -78,31 +82,15 @@
                 if (res.product.length > 0) {
         res.product.forEach(function(product, index) {
             $('#myTable').DataTable().row.add([
+                index + 1,
                 product.name,
-                product.description,
                 product.stock,
                 product.price,
-                `<div class="d-flex justify-content-center">
-                    <a class="btn btn-info mx-1" href="/products/${product.id}">
-                        <i class="fa fa-eye"></i>
-                    </a>
-                    <a class="btn btn-primary mx-1" href="/products/${product.id}/edit">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <form action="/products/${product.id}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger mx-1">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </form>
-                </div>`
             ]).draw(false);
         });
     } else {
         $('#myTable').DataTable().row.add([
-            '',
-            '', 'No data available', '', ''
+            '','No data available', '', ''
         ]).draw(false);
     }
 }

@@ -39,9 +39,17 @@ class DatabaseSeeder extends Seeder
 
         // Create admin User and assign the role to him.
         $user = User::create([
-            'name' => 'Prevail Ejimadu',
+            'firstname' => 'vimal',
+            'lastname' => 's',
+            'dob' => '2024-05-17',
             'email' => 'test@example.com',
-            'password' => Hash::make('password')
+            'mobile' => '9874561235',
+            'address' => 'chennai',
+            'state' => 'tamilnadu',
+            'city' => 'thousandlights',
+            'pincode' => '6000008',
+            'username' => 'vimal',
+            'password' => Hash::make('123456')
         ]);
 
         $role = Role::create(['name' => 'Admin']);

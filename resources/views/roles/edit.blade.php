@@ -4,12 +4,12 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Role
+            <div class="pullleft">
+                <h2>Edit Role </h2>
                     <div class="float-end">
                         <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
                     </div>
-                </h2>
+               
             </div>
         </div>
     </div>
@@ -26,12 +26,13 @@
         </div>
     @endif
 
-    <form action="{{ route('roles.update', $role->id) }}" method="PATCH">
+    <form action="{{ route('roles.note') }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-xs-12 mb-3">
                 <div class="form-group">
                     <strong>Name:</strong>
+                    <input type="hidden" name="id" value="{{ $role->id }}">
                     <input type="text" value="{{ $role->name }}" name="name" class="form-control"
                         placeholder="Name">
                 </div>

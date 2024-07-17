@@ -3,14 +3,14 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb mb-4">
-            <div class="pull-left">
-                <h2>Role Management
+            <div class="pullleft">
+                <h2>Role Management</h2>
                     <div class="float-end">
                         @can('role-create')
                             <a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>
                         @endcan
                     </div>
-                </h2>
+                
             </div>
         </div>
     </div>

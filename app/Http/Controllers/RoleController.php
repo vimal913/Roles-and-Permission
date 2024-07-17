@@ -67,14 +67,14 @@ class RoleController extends Controller
         return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
     }
 
-    public function update(Request $request, $id)
+    public function notes(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
             'permission' => 'required',
         ]);
 
-        $role = Role::find($id);
+        $role = Role::find($request->id);
         $role->name = $request->input('name');
         $role->save();
 

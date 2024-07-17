@@ -3,12 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb mb-4">
-            <div class="pull-left">
-                <h2>Create New User
+            <div class="pullleft">
+                <h2>Create New User</h2>
                     <div class="float-end">
                         <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
                     </div>
-                </h2>
+                
             </div>
         </div>
     </div>
@@ -29,14 +29,62 @@
         <div class="row">
             <div class="col-xs-12 mb-3">
                 <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <strong>First Name:</strong>
+                    <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>Last Name:</strong>
+                    <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>DOB:</strong>
+                    <input type="date" name="dob" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 mb-3">
                 <div class="form-group">
                     <strong>Email:</strong>
                     <input type="email" name="email" class="form-control" placeholder="Email">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>Mobile:</strong>
+                    <input type="text" name="mobile" class="form-control" placeholder="Mobile">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>Address:</strong>
+                    <textarea class="form-control" name="address" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>City:</strong>
+                    <input type="text" name="city" class="form-control" placeholder="City">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>State:</strong>
+                    <input type="text" name="state" class="form-control" placeholder="State">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>Pincode:</strong>
+                    <input type="text" name="pincode" class="form-control" placeholder="Pincode">
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="form-group">
+                    <strong>Username:</strong>
+                    <input type="text" name="username" class="form-control" placeholder="Username">
                 </div>
             </div>
             <div class="col-xs-12 mb-3">

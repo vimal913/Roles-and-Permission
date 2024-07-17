@@ -26,8 +26,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(50);
-        return view('products.index', compact('products'));
+        // dd('hi');
+        // $products = Product::latest()->paginate(50);
+        // return view('products.index', compact('products'));
+        return view('products.index');
     }
 
     /**
@@ -50,7 +52,9 @@ class ProductController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'price' => 'required',
         ]);
 
         Product::create($request->all());
@@ -92,7 +96,9 @@ class ProductController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'price' => 'required',
         ]);
 
         $product->update($request->all());
@@ -113,5 +119,23 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully');
+    }
+
+    public function search(Request $request)
+    {
+        // $name = $request->get('name');
+
+        
+        // $results = Product::where('name', 'like', '%' . $name . '%')->get();
+
+        
+        // return response()->json($results);
+        $Product = Product::all();
+      if($request->keyword != ''){
+      $Product = Product::where('name','LIKE','%'.$request->keyword.'%')->get();
+      }
+      return response()->json([
+         'product' => $Product
+      ]);
     }
 }
